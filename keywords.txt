@@ -30,8 +30,9 @@ sayAAAh	KEYWORD2
 sayHAhA	KEYWORD2
 sayGoLd	KEYWORD2
 sayPoor	KEYWORD2
-  
-byteAll( void ); // bytes through all segements by a loop 
+saySmiley KEYWORD2  
+byteAll KEYWORD2
+sayArrDigits KEYWORD2  
 
 #######################################
 # Instances (KEYWORD2)
