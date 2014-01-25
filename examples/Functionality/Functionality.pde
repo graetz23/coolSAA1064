@@ -12,7 +12,7 @@
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
  * edited:  25.01.2014
- * version: 0.8
+ * version: 0.85
  */
 
 /**************************************80**************************************/
@@ -39,21 +39,22 @@ void setup( ) {
 
 void loop( ) {
 
+  
   saa1064.setDark( ); // set output currents to 3 mA
   
   for( int i = 0; i < 3; i++ ) {
     
     saa1064.sayCooL( ); // say CooL
-    delay( 1000 );
+    delay( 750 );
 
     saa1064.say( -1, 5, 10, 10 ); // say _SAA
-    delay( 1000 );
+    delay( 750 );
 
     saa1064.say( 1064 ); // say 1064
-    delay( 1000 );
+    delay( 750 );
     
     saa1064.saySmiley( ); // say a smiley
-    delay( 1000 );
+    delay( 750 );
     
     if( i == 0 )
       saa1064.setNormal( ); // set output currents to 12 mA
@@ -62,7 +63,7 @@ void loop( ) {
       saa1064.setBright( ); // set output currents to 21 mA
     
   } // i
- 
+  
   saa1064.sayOooh( );
   delay( 1000 );
  
@@ -75,11 +76,18 @@ void loop( ) {
   saa1064.sayHAhA( );
   delay( 1000 );
   
-  saa1064.sayPoor( );
+  saa1064.sayJAJA( );
   delay( 1000 );  
   
-  saa1064.sayGoLd( );
+  saa1064.sayFoo( );
   delay( 1000 );  
+  
+  saa1064.saybAr( );
+  delay( 1000 );  
+  
+  // scroll: 'Cool SAA1064 8-]' from right to left by 250 ms per step
+  int arr[ 20 ] = { 12, 21, 21, 19, -1, 5, 10, 10, 1, 0, 6, 4, -1, 8, 26, 27, -1, -1, -1 ,-1 }; // hex + interal codes
+  saa1064.scroll( arr, 20, 250 ); // scroll right to left by 250 ms per step
   
   saa1064.say( 815 );
   delay( 1000 );
@@ -107,8 +115,7 @@ void loop( ) {
   
   saa1064.sayDate( 24, 01 );
   delay( 1000 );
-  saa1064.clear( );
-  delay( 1000 );
+  
   saa1064.sayDateUS( 01, 24 );
   delay( 1000 );
   
@@ -148,9 +155,28 @@ void loop( ) {
   saa1064.clear( );
   saa1064.say( 4, 3 ); // show 4 on 4th digit
   delay( 1000 );    
-    
+
+  // say all store digits
   saa1064.sayArrDigits( );
   delay( 1000 );
+  
+  // use it as an amplitude in levels from 0 to 7
+  for( int i = 0; i < 8; i++ ) {
+    saa1064.amplitude( i );
+    delay( 125 );
+  }
+  for( int i = 7; i >= 3; i-- ) {
+    saa1064.amplitude( i );
+    delay( 125 );
+  }
+  for( int i = 3; i < 6; i++ ) {
+    saa1064.amplitude( i );
+    delay( 125 );
+  }
+  for( int i = 5; i >= 0; i-- ) {
+    saa1064.amplitude( i );
+    delay( 125 );
+  }
   
   saa1064.byteAll( );
   delay( 1000 );
@@ -159,6 +185,11 @@ void loop( ) {
     
    saa1064.say( i );
    delay( 10 );
+  
+  } // i
+  
+  saa1064.clear( );
+  delay( 1000 );
   
   } // i
   

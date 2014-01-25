@@ -10,7 +10,7 @@
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
  * edited:  25.01.2014
- * version: 0.8
+ * version: 0.85
  *
  * Necessary wiring for this library:
  *
@@ -108,6 +108,10 @@ class SAA1064 {
   void say( int number ); // say a number 0 .. 9999 : 42 => 42
   void sayByZero( int number ); // say a number 0 .. 9999 : 42 => 0042
 
+  void scroll( int* arrDigits, int arrDigitsLength, int milliSeconds ); // scroll right to left by 250 ms per step
+  
+  void amplitude( int level ); // display an amplitude by level form 0 .. 7 
+  
   void sayTime( int hour, int minute ); // displays the time
   void sayDate( int day, int month ); // displays the date
   void sayDateUS( int day, int month ); // displays the date, flipped position
@@ -118,11 +122,12 @@ class SAA1064 {
   void sayUuuh( void ); // displays the word Uuuh
   void sayAAAh( void ); // displays the word AAAh
   void sayHAhA( void ); // displays the word HAhA
-  void sayGoLd( void ); // displays the word GoLd
-  void sayPoor( void ); // displays the word Poor
+  void sayJAJA( void ); // displays the word JAJA
+  void sayFoo( void ); // displays the word Foo
+  void saybAr( void ); // displays the word bAr
   
   void saySmiley( void ); // displays a smiley 8-]
-  
+    
   void byteAll( void ); // bytes through all segements by a loop 
     
   void sayArrDigits( void ); // show the member _arrDigits with stored codes.
