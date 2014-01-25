@@ -1,0 +1,148 @@
+/**
+ * The 'COOL SAA1064 LIB' for arduino
+ * An arduino library driving the NXP SAA1064 IC in a comfortable way.
+ *
+ * SAA1064 saa1064;
+ * saa1064.sayCooL( );
+ *
+ * author:  Christian Scheiblich
+ * email:   cscheiblich@gmail.com
+ * license: Apache V 2.0, Jan 2004
+ * created: 24.01.2014
+ * edited:  25.01.2014
+ * version: 0.7
+ *
+ * Necessary wiring for this library:
+ *
+ * 7-Segment:  a -> SAA1064: P1 and/or  P9 (pin: 10 and/or 15)
+ * 7-Segment:  b -> SAA1064: P2 and/or P10 (pin:  9 and/or 16)
+ * 7-Segment:  c -> SAA1064: P3 and/or P11 (pin:  8 and/or 17)
+ * 7-Segment:  d -> SAA1064: P4 and/or P12 (pin:  7 and/or 18)
+ * 7-Segment:  e -> SAA1064: P5 and/or P13 (pin:  6 and/or 19)
+ * 7-Segment:  f -> SAA1064: P6 and/or P14 (pin:  5 and/or 20)
+ * 7-Segment:  g -> SAA1064: P7 and/or P15 (pin:  4 and/or 21)
+ * 7-Segment: dp -> SAA1064: P8 and/or P16 (pin:  3 and/or 22)
+ *
+ *             P1/P9
+ *            -------
+ *           |   a   |
+ *    P6/P14 | f   b | P2/P10
+ *           | P7/P15|
+ *            -------
+ *           |   g   |
+ *    P5/P13 | e   c | P3/P11
+ *           |   d   |
+ *            -------. dp P8/P16
+ *             P4/P12
+ *
+ * How to calculate a digits is easy due to clean mapping:
+ *
+ * a:  2^0 = 1
+ * b:  2^1 = 2
+ * c:  2^2 = 4
+ * d:  2^3 = 8
+ * e:  2^4 = 16
+ * f:  2^5 = 32
+ * g:  2^6 = 64
+ * dp: 2^7 = 128
+ *
+ * digit '7': a + b + c  = 1 + 2 + 4 = 7
+ * digit '4': b + c + f + g = 2 + 4 + 32 + 64 = 38
+ * digit 'b': c + d + e + f + g = 4 + 8 + 16 + 32 + 64 = 124
+ * ... see '_init( )' method in .cpp file for more!
+ *
+ * Pin 1: Wire it to ground (should work with IC2 address 0x70 >> 1)
+ * Pin 2: Wire a 2 .. 3 nF capacitor to ground; even 10 nF works
+ *
+ * Control Bytes:
+ *
+ * B00000000 - is send to mark that the next byte is a control byte:
+ *
+ * B00011000 - all segments on for test, 3 mA segment current - dark
+ * B00101000 - all segments on for test, 6 mA segment current - normal
+ * B01001000 - all segments on for test, 12 mA segment current - bright
+ * B01000110 - static mode on, digit 1, digit 2 on, 12mA segment current
+ * B01000111 - dynamic mode on, digit 1+3, digit 2+4 on, 12mA segment current
+ *
+ */
+
+/**************************************80**************************************/
+
+#ifndef SAA1064_h
+#define SAA1064_h
+
+/**************************************80**************************************/
+
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#else
+#include "WProgram.h"
+#endif
+  
+/**************************************80**************************************/
+
+// #include <Wire.h> // not necessary to be included
+
+/**************************************80**************************************/
+
+class SAA1064 {
+
+ public:
+
+  SAA1064( void ); // constructor
+  SAA1064( byte i2cAddress ); // constructor
+  
+  ~SAA1064( void ); // destructor
+  
+  void set( byte controlByte ); // to your own control byte; look at text above
+  void setTest( void ); // switch all segemtns on for testing them
+  void setStatic( void ); // to a default mode; static 2 digits, 12 mA
+  void setDynamic( void ); // to a default mode; dynamic 4 digits, 12 mA
+  
+  void clear( void ); // switch off all segments
+  
+  void say( int number ); // say a number 0 .. 9999 : 42 => 42
+  void sayByZero( int number ); // say a number 0 .. 9999 : 42 => 0042
+
+  void sayTime( int hour, int minute ); // displays the time
+
+  void sayDate( int day, int month ); // displays the date
+  void sayDateUS( int day, int month ); // displays the date, flipped position
+  
+  void sayYear( int year ); // say year in four digits
+
+  void sayCooL( void ); // displays the word CooL
+  void sayOooh( void ); // displays the word Oooh
+  void sayUuuh( void ); // displays the word Uuuh
+  void sayAAAh( void ); // displays the word AAAh
+  void sayHAhA( void ); // displays the word HAhA
+  void sayGoLd( void ); // displays the word GoLd
+  void sayPoor( void ); // displays the word Poor
+  
+  void byteAll( void ); // bytes through all segements by a loop 
+    
+ private:
+ 
+  void _init( void ); // sets the MAPPING TABLE (number to bytes) FOR the used WIRING
+  
+  void _say( byte b4, byte b3, byte b2, byte b1 ); // update display by bytes
+  void _say( int h4, int h3, int  h2, int h1 ); // update display by hex 0 .. 15 ( .. F ) and -1 is blank
+  
+  void _splitNum2Dig( int number, int* digits ); // and returns an array of length 4; allocated before !!!
+
+  byte _i2cAddress; // set in costructor to 0x70 >> 1
+  
+  byte _controlByte; // The byte the configures the SAA1064 chip
+  
+  int* _arrDigits; // set in constructor
+  int _arrDigitsLength; // length of 
+  
+}; // SAA1064
+
+// extern SAA1064 RTC;
+
+/**************************************80**************************************/
+
+#endif // SAA1064_h
+
+/**************************************80**************************************/

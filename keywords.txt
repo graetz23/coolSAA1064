@@ -1,0 +1,45 @@
+#######################################
+# Syntax Coloring Map For SAA1064
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SAA1064	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+set	KEYWORD2
+setTest	KEYWORD2
+setStatic	KEYWORD2
+setDynamic	KEYWORD2
+clear	KEYWORD2
+say	KEYWORD2
+sayByZero	KEYWORD2
+sayTime	KEYWORD2
+sayDate	KEYWORD2
+sayDateUS	KEYWORD2
+sayYear	KEYWORD2
+sayCooL	KEYWORD2
+sayOooh	KEYWORD2
+sayUuuh	KEYWORD2
+sayAAAh	KEYWORD2
+sayHAhA	KEYWORD2
+sayGoLd	KEYWORD2
+sayPoor	KEYWORD2
+  
+byteAll( void ); // bytes through all segements by a loop 
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+SAA1064 KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
