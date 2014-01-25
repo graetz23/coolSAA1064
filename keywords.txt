@@ -18,6 +18,8 @@ setStatic	KEYWORD2
 setDynamic	KEYWORD2
 clear	KEYWORD2
 say	KEYWORD2
+scroll KEYWORD2
+amplitude KEYWORD2
 sayByZero	KEYWORD2
 sayTime	KEYWORD2
 sayDate	KEYWORD2
@@ -28,8 +30,9 @@ sayOooh	KEYWORD2
 sayUuuh	KEYWORD2
 sayAAAh	KEYWORD2
 sayHAhA	KEYWORD2
-sayGoLd	KEYWORD2
-sayPoor	KEYWORD2
+sayJAJA	KEYWORD2
+sayFoo	KEYWORD2
+sayBAr	KEYWORD2
 saySmiley KEYWORD2  
 byteAll KEYWORD2
 sayArrDigits KEYWORD2  
