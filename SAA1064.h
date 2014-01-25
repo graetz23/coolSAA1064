@@ -10,7 +10,7 @@
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
  * edited:  25.01.2014
- * version: 0.7
+ * version: 0.8
  *
  * Necessary wiring for this library:
  *
@@ -78,10 +78,6 @@
 #else
 #include "WProgram.h"
 #endif
-  
-/**************************************80**************************************/
-
-// #include <Wire.h> // not necessary to be included
 
 /**************************************80**************************************/
 
@@ -96,19 +92,25 @@ class SAA1064 {
   
   void set( byte controlByte ); // to your own control byte; look at text above
   void setTest( void ); // switch all segemtns on for testing them
-  void setStatic( void ); // to a default mode; static 2 digits, 12 mA
-  void setDynamic( void ); // to a default mode; dynamic 4 digits, 12 mA
+  void setStatic( void ); // to a default mode; static 2 digits, 18 mA
+  void setDynamic( void ); // to a default mode; dynamic 4 digits, 18 mA
+  
+  void setDark( void ); // set to output currents 3 mA
+  void setNormal( void ); // set to output currents 12 mA
+  void setBright( void ); //  set to output currents 21 mA
   
   void clear( void ); // switch off all segments
   
+  void say( int h4, int h3, int  h2, int h1 ); // update display by hex 0 .. 15 ( .. F ) and -1 is blank
+  void say( byte b4, byte b3, byte b2, byte b1 ); // update display by bytes
+  void say( int h, int digit ); // say byte on single digit: 0, 1, 2 or 3
+  void say( byte b, int digit ); // say byte on single digit: 0, 1, 2 or 3
   void say( int number ); // say a number 0 .. 9999 : 42 => 42
   void sayByZero( int number ); // say a number 0 .. 9999 : 42 => 0042
 
   void sayTime( int hour, int minute ); // displays the time
-
   void sayDate( int day, int month ); // displays the date
   void sayDateUS( int day, int month ); // displays the date, flipped position
-  
   void sayYear( int year ); // say year in four digits
 
   void sayCooL( void ); // displays the word CooL
@@ -119,22 +121,29 @@ class SAA1064 {
   void sayGoLd( void ); // displays the word GoLd
   void sayPoor( void ); // displays the word Poor
   
+  void saySmiley( void ); // displays a smiley 8-]
+  
   void byteAll( void ); // bytes through all segements by a loop 
     
- private:
+  void sayArrDigits( void ); // show the member _arrDigits with stored codes.
+  
+  private:
  
   void _init( void ); // sets the MAPPING TABLE (number to bytes) FOR the used WIRING
   
-  void _say( byte b4, byte b3, byte b2, byte b1 ); // update display by bytes
-  void _say( int h4, int h3, int  h2, int h1 ); // update display by hex 0 .. 15 ( .. F ) and -1 is blank
+  void _set( byte controlByte ); // set a control byte and keep it in mind
   
+  void _say( byte b4, byte b3, byte b2, byte b1 ); // update display by bytes
+
+  void _say( byte b, int digit ); // say byte on single digit: 0, 1, 2 or 3
+
   void _splitNum2Dig( int number, int* digits ); // and returns an array of length 4; allocated before !!!
 
   byte _i2cAddress; // set in costructor to 0x70 >> 1
   
   byte _controlByte; // The byte the configures the SAA1064 chip
   
-  int* _arrDigits; // set in constructor
+  byte* _arrDigits; // set in constructor
   int _arrDigitsLength; // length of 
   
 }; // SAA1064
