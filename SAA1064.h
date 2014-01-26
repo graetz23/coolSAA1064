@@ -3,14 +3,14 @@
  * An arduino library driving the NXP SAA1064 IC in a comfortable way.
  *
  * SAA1064 saa1064;
- * saa1064.sayCooL( );
+ * saa1064.scrollCooLSAA1064( );
  *
  * author:  Christian Scheiblich
  * email:   cscheiblich@gmail.com
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
- * edited:  25.01.2014
- * version: 0.86
+ * edited:  26.01.2014
+ * version: 0.90
  *
  * Necessary wiring for this library:
  *
@@ -54,6 +54,15 @@
  * Pin 1: Wire it to ground (should work with IC2 address 0x70 >> 1)
  * Pin 2: Wire a 2 .. 3 nF capacitor to ground; even 10 nF works
  *
+ * Pin  1: Wire to ground (should work with IC2 address 0x70 >> 1)
+ * Pin  2: Wire a 2 .. 3 nF capacitor to ground; even 10 nF works
+ * Pin 11: Wire to any NPN-type transistor like N2222; I used: 2N 3704 
+ * Pin 12: VEE - Ground; should be 0 Volts
+ * Pin 13: VCC - 5 Volts
+ * Pin 14: Wire to any NPN-type transistor like N2222; I used: 2N 3704
+ * Pin 23: SDA of I2C bus; I added 1k Ohm pull up resistor to VCC
+ * Pin 24: SCL of I2C bus; I added 1k Ohm pull up resistor to VCC
+ * 
  * Control Bytes:
  *
  * B00000000 - is send to mark that the next byte is a control byte:
@@ -108,7 +117,8 @@ class SAA1064 {
   void say( int number ); // say a number 0 .. 9999 : 42 => 42
   void sayByZero( int number ); // say a number 0 .. 9999 : 42 => 0042
 
-  void scroll( int* arrDigits, int arrDigitsLength, int milliSeconds ); // scroll right to left by 250 ms per step
+  void scroll( int* arrDigits, int arrDigitsLength, int milliSeconds ); // scroll right to left
+  void scrollCooLSAA1064( void ); // scroll 'CooL SAA1064 8-]' from right to left
   
   void amplitude( int level ); // display an amplitude by level form 0 .. 7 
   
@@ -116,6 +126,8 @@ class SAA1064 {
   void sayDate( int day, int month ); // displays the date
   void sayDateUS( int day, int month ); // displays the date, flipped position
   void sayYear( int year ); // say year in four digits
+  void scrollTime( int hour, int minute, int second, int milliSeconds ); // scroll right to left
+  void scrollDate( int day, int month, int year, int milliSeconds ); // scroll right to left
 
   void sayCooL( void ); // displays the word CooL
   void sayOooh( void ); // displays the word Oooh

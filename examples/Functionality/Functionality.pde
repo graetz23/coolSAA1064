@@ -3,7 +3,7 @@
  * An arduino library driving the NXP SAA1064 IC in a comfortable way.
  *
  * SAA1064 saa1064;
- * saa1064.sayCooL( );
+ * saa1064.scrollCooLSAA1064( );
  *
  * Some Test methods are called.
  *
@@ -11,8 +11,8 @@
  * email:   cscheiblich@gmail.com
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
- * edited:  25.01.2014
- * version: 0.86
+ * edited:  26.01.2014
+ * version: 0.90
  */
 
 /**************************************80**************************************/
@@ -86,8 +86,7 @@ void loop( ) {
   delay( 1000 );  
   
   // scroll: 'Cool SAA1064 8-]' from right to left by 250 ms per step
-  int arr[ 20 ] = { 12, 21, 21, 19, -1, 5, 10, 10, 1, 0, 6, 4, -1, 8, 26, 27, -1, -1, -1 ,-1 }; // hex + interal codes
-  saa1064.scroll( arr, 20, 250 ); // scroll right to left by 250 ms per step
+  saa1064.scrollCooLSAA1064( );
   
   saa1064.say( 815 );
   delay( 1000 );
@@ -124,6 +123,10 @@ void loop( ) {
 
   saa1064.sayYear( 2014 );
   delay( 1000 );
+  
+  saa1064.scrollTime( 18, 15, 00, 250 ); // right to left by 250 ms per step
+  
+  saa1064.scrollDate( 24, 1, 2014, 250 ); // right to left by 250 ms per step
   
   saa1064.say( 5 );
   delay( 1000 );
@@ -164,19 +167,19 @@ void loop( ) {
   for( int i = 0; i < 8; i++ ) {
     saa1064.amplitude( i );
     delay( 125 );
-  }
+  } // i
   for( int i = 7; i >= 3; i-- ) {
     saa1064.amplitude( i );
     delay( 125 );
-  }
+  } // i
   for( int i = 3; i < 6; i++ ) {
     saa1064.amplitude( i );
     delay( 125 );
-  }
+  } // i
   for( int i = 5; i >= 0; i-- ) {
     saa1064.amplitude( i );
     delay( 125 );
-  }
+  } // i
   
   saa1064.byteAll( );
   delay( 1000 );
