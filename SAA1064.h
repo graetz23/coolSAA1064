@@ -10,7 +10,7 @@
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
  * edited:  26.01.2014
- * version: 0.90
+ * version: 0.91
  *
  * Necessary wiring for this library:
  *
@@ -107,6 +107,7 @@ class SAA1064 {
   void setDark( void ); // set to output currents 3 mA
   void setNormal( void ); // set to output currents 12 mA
   void setBright( void ); //  set to output currents 21 mA
+  void setIntensity( int intensity ); // sets the intensity from 1 .. 7 - min .. max
   
   void clear( void ); // switch off all segments
   
