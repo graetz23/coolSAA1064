@@ -3,14 +3,14 @@
  * An arduino library driving the NXP SAA1064 IC in a comfortable way.
  *
  * SAA1064 saa1064;
- * saa1064.sayCooL( );
+ * saa1064.scrollCooLSAA1064( );
  *
  * author:  Christian Scheiblich
  * email:   cscheiblich@gmail.com
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
- * edited:  25.01.2014
- * version: 0.86
+ * edited:  26.01.2014
+ * version: 0.90
  */
 
 /**************************************80**************************************/
@@ -275,6 +275,18 @@ SAA1064::sayByZero( int number ) {
  
 /**************************************80**************************************/
 
+void // scroll 'CooL SAA1064 8-]' from right to left
+SAA1064::scrollCooLSAA1064( void ) {
+
+  int arr[ 20 ] = { 12, 21, 21, 19, -1, 
+                    5, 10, 10, 1, 0, 6, 4, -1,
+                    8, 26, 27, -1, -1, -1 ,-1 }; // hex + interal codes
+  scroll( arr, 20, 250 ); // scroll right to left by 250 ms per step
+
+} // SAA1064::scrollCooLSAA1064
+ 
+/**************************************80**************************************/
+
 void // display an amplitude by level form 0 .. 7 
 SAA1064::amplitude( int level ) {
 
@@ -310,25 +322,19 @@ SAA1064::amplitude( int level ) {
 void // displays the time
 SAA1064::sayTime( int hour, int minute ) {
 
-  int d1 = 0, d2 = 0, d3 = 0, d4 = 0;
-
-  if( minute < 10 ) {
-    d1 = minute;
-    d2 = 0;
-  } else {
-    d1 = minute % 10; // mod
-    d2 = minute / 10; // div
-  } // if
+  int h1 = 0, h0 = 0, m1 = 0, m0 = 0;
+  
+  int digits[ 4 ];
+  
+  _splitNum2Dig( hour, digits );
+  h1 = digits[ 1 ];
+  h0 = digits[ 0 ];
     
-  if( hour < 10 ) { 
-    d3 = hour;
-    d4 = 0;
-  } else {
-    d3 = hour % 10; // mod
-    d4 = hour / 10; // div
-  } // if
+  _splitNum2Dig( minute, digits );
+  m1 = digits[ 1 ];
+  m0 = digits[ 0 ];
     
-  say( d4, d3, d2, d1 );
+  say( h1, h0, m1, m0 );
 	
 } // SAA1064::sayTime
 
@@ -358,6 +364,63 @@ SAA1064::sayYear( int year ) {
   say( year );
 
 } // SAA1064::sayYear
+
+/**************************************80**************************************/
+void // scroll right to left
+SAA1064::scrollTime( int hour, int minute, int second, int milliSeconds ) {
+  
+  int h1 = 0, h0 = 0, m1 = 0, m0 = 0, s1 = 0, s0 = 0;
+  
+  int digits[ 4 ];
+  
+  _splitNum2Dig( hour, digits );
+  h1 = digits[ 1 ];
+  h0 = digits[ 0 ];
+    
+  _splitNum2Dig( minute, digits );
+  m1 = digits[ 1 ];
+  m0 = digits[ 0 ];
+    
+  _splitNum2Dig( second, digits );
+  s1 = digits[ 1 ];
+  s0 = digits[ 0 ];
+  
+  int arrTimeLength = 12; // '26' -> '-', a minus or '-1' -> ' ', blank
+  int arrTime[ 12 ] = { h1, h0, 26, m1, m0, 26, s1, s0, -1, -1, -1, -1 };
+  
+  scroll( arrTime, arrTimeLength, milliSeconds );
+
+} // SAA1064::scrollTime
+
+/**************************************80**************************************/
+
+void // scroll right to left
+SAA1064::scrollDate( int day, int month, int year, int milliSeconds ) {
+  
+  int d1 = 0, d0 = 0, m1 = 0, m0 = 0, y3 = 0, y2 = 0, y1 = 0, y0 = 0;
+  
+  int digits[ 4 ];
+  
+  _splitNum2Dig( day, digits );
+  d1 = digits[ 1 ];
+  d0 = digits[ 0 ];
+    
+  _splitNum2Dig( month, digits );
+  m1 = digits[ 1 ];
+  m0 = digits[ 0 ];
+    
+  _splitNum2Dig( year, digits );
+  y3 = digits[ 3 ];
+  y2 = digits[ 2 ];  
+  y1 = digits[ 1 ];
+  y0 = digits[ 0 ];
+  
+  int arrDateLength = 14; // '26' -> '-', a minus or '-1' -> ' ', blank
+  int arrDate[ 14 ] = { d1, d0, 26, m1, m0, 26, y3, y2, y1, y0, -1, -1, -1, -1 };
+  
+  scroll( arrDate, arrDateLength, milliSeconds );
+  
+} // SAA1064::scrollDate
 
 /**************************************80**************************************/
 
@@ -477,7 +540,7 @@ SAA1064::_init( void ) {
 
   _i2cAddress = 0x70 >> 1; // shifted, due to pin 1 is grounded (VEE) -> 0x70
 
-  _arrDigitsLength = 28; // length of available char for single segment
+  _arrDigitsLength = 29; // length of available char for single segment
       
   _arrDigits = new byte[ _arrDigitsLength ]; // dynamic allocation -> del it!
     
@@ -509,6 +572,7 @@ SAA1064::_init( void ) {
   _arrDigits[ 25 ] =  62; //  U  :   2+4+8+16+32    =  62
   _arrDigits[ 26 ] =  64; //  -  :              +64 =  64
   _arrDigits[ 27 ] =  15; //  ]  : 1+2+4+8          =  15
+  _arrDigits[ 28 ] =  99; //  °  : 1+2       +32+64 =  99
 
 } // SAA1064::_init
 
@@ -571,3 +635,4 @@ SAA1064::_splitNum2Dig( int number, int* digits ) {
  
 } // SAA1064::_splitNum2Dig
 
+/**************************************80**************************************/

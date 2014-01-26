@@ -25,6 +25,8 @@ sayTime	KEYWORD2
 sayDate	KEYWORD2
 sayDateUS	KEYWORD2
 sayYear	KEYWORD2
+scrollTime KEYWORD2
+scrollDate KEYWORD2
 sayCooL	KEYWORD2
 sayOooh	KEYWORD2
 sayUuuh	KEYWORD2
@@ -41,6 +43,7 @@ sayArrDigits KEYWORD2
 # Instances (KEYWORD2)
 #######################################
 
+saa1064 KEYWORD2
 SAA1064 KEYWORD2
 
 #######################################
