@@ -10,7 +10,7 @@
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
  * edited:  26.01.2014
- * version: 0.90
+ * version: 0.91
  */
 
 /**************************************80**************************************/
@@ -96,39 +96,50 @@ SAA1064::setDynamic( ) {
 
 /**************************************80**************************************/
   
-void // set to output currents 3 mA
+void // set to output currents 3 mA; B0001xxxx
 SAA1064::setDark( void ) {
 
-  byte controlByte = _controlByte;
-  controlByte = controlByte % B00001000; // isolation of config bytes
-  controlByte += B00010000; // add position of 3 mA
-  set( controlByte );
+  setIntensity( 1 );
 
 } // SAA1064::setDark
 
 /**************************************80**************************************/
 
-void // set to output currents 12 mA
+void // set to output currents 12 mA; B0100xxxx
 SAA1064::setNormal( void ) {
 
-  byte controlByte = _controlByte;
-  controlByte = controlByte % B00001000; // isolation of config bytes
-  controlByte += B01000000; // add position of 12 mA
-  set( controlByte );
+  setIntensity( 4 );
 
 } // SAA1064::setNormal
 
 /**************************************80**************************************/
 
-void //  set to output currents 21 mA
+void //  set to output currents 21 mA = 3 + 6 + 12 mA; B0111xxxx
 SAA1064::setBright( void ) {
 
-  byte controlByte = _controlByte;
-  controlByte = controlByte % B00001000; // isolation of config bytes
-  controlByte += B01110000; // add all pos of 3 + 6 + 12 mA
-  set( controlByte );
-
+  setIntensity( 7 );
+  
 } // SAA1064::setBright
+
+/**************************************80**************************************/
+
+void // sets the intense from 1 .. 7 - min .. max
+SAA1064::setIntensity( int intensity ) {
+
+  if( intensity < 1 )
+    intensity = 1; // become fail safe
+    
+  if( intensity > 7 )
+    intensity = 7; // become fail safe
+    
+  byte byteIntensity = (byte)(intensity); // cast to bits n bytes
+  byteIntensity = byteIntensity << 4; // B00000111 -> B01110000
+  byte controlByte = _controlByte; // get control byte from mind
+  controlByte = controlByte % B00001000; // isolation of config bytes
+  controlByte += byteIntensity; // add up all pos of 3 mA, 6 mA, and 12 mA
+  set( controlByte ); // send via I2C and keep in mind
+
+} // SAA1064::setIntensity
   
 /**************************************80**************************************/
 

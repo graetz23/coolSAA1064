@@ -5,19 +5,15 @@
  * SAA1064 saa1064;
  * saa1064.scrollCooLSAA1064( );
  *
- * Some Test methods are called.
- *
  * author:  Christian Scheiblich
  * email:   cscheiblich@gmail.com
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
  * edited:  26.01.2014
- * version: 0.90
+ * version: 0.91
  */
 
-/**************************************80**************************************/
-
-#include <Wire.h>    // Wire.h must be included here
+#include <Wire.h>    // for some strange reasons, Wire.h must be included here
 #include <SAA1064.h> // enable I2C bus
 
 SAA1064 saa1064;
@@ -38,7 +34,8 @@ void setup( ) {
 } // setup
 
 void loop( ) {
-
+  
+  saa1064.setDynamic( );
   
   saa1064.setDark( ); // set output currents to 3 mA
   
@@ -63,6 +60,9 @@ void loop( ) {
       saa1064.setBright( ); // set output currents to 21 mA
     
   } // i
+ 
+  // scroll: 'Cool SAA1064 8-]' from right to left by 250 ms per step
+  saa1064.scrollCooLSAA1064( );
   
   saa1064.sayOooh( );
   delay( 1000 );
@@ -84,9 +84,6 @@ void loop( ) {
   
   saa1064.saybAr( );
   delay( 1000 );  
-  
-  // scroll: 'Cool SAA1064 8-]' from right to left by 250 ms per step
-  saa1064.scrollCooLSAA1064( );
   
   saa1064.say( 815 );
   delay( 1000 );
@@ -158,28 +155,38 @@ void loop( ) {
   saa1064.clear( );
   saa1064.say( 4, 3 ); // show 4 on 4th digit
   delay( 1000 );    
-
-  // say all store digits
-  saa1064.sayArrDigits( );
-  delay( 1000 );
   
   // use it as an amplitude in levels from 0 to 7
   for( int i = 0; i < 8; i++ ) {
     saa1064.amplitude( i );
     delay( 125 );
-  } // i
+  }
   for( int i = 7; i >= 3; i-- ) {
     saa1064.amplitude( i );
     delay( 125 );
-  } // i
+  }
   for( int i = 3; i < 6; i++ ) {
     saa1064.amplitude( i );
     delay( 125 );
-  } // i
+  }
   for( int i = 5; i >= 0; i-- ) {
     saa1064.amplitude( i );
     delay( 125 );
+  }
+  
+  saa1064.say( 8888 );
+  for( int i = 1; i < 8; i++ ) {
+    saa1064.setIntensity( i );
+    delay( 250 );
   } // i
+  for( int i = 7; i > 0; i-- ) {
+    saa1064.setIntensity( i );
+    delay( 250 );
+  } // i
+  saa1064.setBright( );
+  
+  saa1064.sayArrDigits( ); // say all store digits
+  delay( 1000 );
   
   saa1064.byteAll( );
   delay( 1000 );
@@ -193,5 +200,5 @@ void loop( ) {
   
   saa1064.clear( );
   delay( 1000 );
-  
+ 
 } // loop
