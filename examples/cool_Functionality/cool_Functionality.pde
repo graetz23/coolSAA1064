@@ -9,12 +9,12 @@
  * email:   cscheiblich@gmail.com
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
- * edited:  26.01.2014
- * version: 0.91
+ * edited:  27.01.2014
+ * version: 0.92
  */
 
 #include <Wire.h>    // for some strange reasons, Wire.h must be included here
-#include <SAA1064.h> // enable I2C bus
+#include <cool_SAA1064.h> // enable I2C bus
 
 SAA1064 saa1064;
 
