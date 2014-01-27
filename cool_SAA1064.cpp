@@ -9,14 +9,14 @@
  * email:   cscheiblich@gmail.com
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
- * edited:  26.01.2014
- * version: 0.91
+ * edited:  27.01.2014
+ * version: 0.92
  */
 
 /**************************************80**************************************/
  
 #include <Wire.h> // include I2C library not in header
-#include "SAA1064.h" // class header file
+#include "cool_SAA1064.h" // class header file
 
 /**************************************80**************************************/
 
