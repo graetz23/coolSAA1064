@@ -9,7 +9,7 @@ saa1064.scollCooLSAA1064( );
 
 Features are:
 
-- select IC's internal test mode switching on all segemtns
+- select IC's internal test mode switching on all segments
 - select mode for two or four digits
 - select the intensity of the segments by dark, normal, bright
 - select the intensity of the segments by an integer 1 .. 7 
@@ -35,4 +35,8 @@ Features are:
 
 All necessary I2C communications are realized by only three methods: _set, 2 x _say!
 
+By the way, if you change the member method _init( ) to some new byte coding, you
+can even driver 4 x 8 = 32 LEDs, e. g. as a bar graph, with the NXP SAA1064 IC! 
+
 Have fun ~8>
+Christian
