@@ -35,8 +35,4 @@ Features are:
 
 All necessary I2C communications are realized by only three methods: _set, 2 x _say!
 
-By the way, if you change the member method _init( ) to some new byte coding, you
-can even driver 4 x 8 = 32 LEDs, e. g. as a bar graph, with the NXP SAA1064 IC! 
-
 Have fun ~8>
-Christian
