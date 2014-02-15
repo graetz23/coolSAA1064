@@ -652,7 +652,14 @@ SAA1064::_say( byte b, int digit ) {
 
 /**
  * Method for splitting up a numbers into its place-value notation.
+ * 
+ * Renamed the method and the variables inside.
+ * @author Christian Scheiblich
+ * @date 15.02.2014
  *
+ * Original by: http://tronixstuff.com/tutorials/ => Ch. 39 - NXP SAA1064
+ * Creative Commons Attribution-Non Commercial-Share Alike v3.0 license
+ * http://creativecommons.org/licenses/by-nc-sa/3.0/
  * @author John Boxall
  * @date 27.07.2011
  */
