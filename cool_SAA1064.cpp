@@ -1,5 +1,6 @@
 /**
- * The 'COOL SAA1064 LIB' for arduino
+ * The 'COOL SAA1064 LIB'.
+ *
  * An arduino library driving the NXP SAA1064 IC in a comfortable way.
  *
  * SAA1064 saa1064;
@@ -9,8 +10,8 @@
  * email:   cscheiblich@gmail.com
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
- * edited:  27.01.2014
- * version: 0.92
+ * edited:  15.02.2014
+ * version: 0.93
  */
 
 /**************************************80**************************************/
@@ -546,44 +547,63 @@ SAA1064::sayArrDigits( void ) {
 /**************************************80**************************************/
 /**************************************80**************************************/
 
+/**
+ * I wired the eight pins of the seven segement as they come in!
+ *
+ * 7-Segment:  a -> SAA1064: P1 and/or  P9 (pin: 10 and/or 15)
+ * 7-Segment:  b -> SAA1064: P2 and/or P10 (pin:  9 and/or 16)
+ * 7-Segment:  c -> SAA1064: P3 and/or P11 (pin:  8 and/or 17)
+ * 7-Segment:  d -> SAA1064: P4 and/or P12 (pin:  7 and/or 18)
+ * 7-Segment:  e -> SAA1064: P5 and/or P13 (pin:  6 and/or 19)
+ * 7-Segment:  f -> SAA1064: P6 and/or P14 (pin:  5 and/or 20)
+ * 7-Segment:  g -> SAA1064: P7 and/or P15 (pin:  4 and/or 21)
+ * 7-Segment: dp -> SAA1064: P8 and/or P16 (pin:  3 and/or 22)
+ *
+ * @author Christian Scheiblich
+ */
 void // sets the MAPPING TABLE (number to bytes) FOR the used WIRING
 SAA1064::_init( void ) {
 
   _i2cAddress = 0x70 >> 1; // shifted, due to pin 1 is grounded (VEE) -> 0x70
 
   _arrDigitsLength = 29; // length of available char for single segment
-      
+
   _arrDigits = new byte[ _arrDigitsLength ]; // dynamic allocation -> del it!
-    
-  _arrDigits[  0 ] =  63; //  0  : 1+2+4+8+16+32    =  63
-  _arrDigits[  1 ] =   6; //  1  :   2+4     	      =   6
-  _arrDigits[  2 ] =  91; //  2  : 1+2  +8+16   +64 =  91
-  _arrDigits[  3 ] =  79; //  3  : 1+2+4+8      +64 =  79
-  _arrDigits[  4 ] = 102; //  4  :   2+4     +32+64 = 102
-  _arrDigits[  5 ] = 109; //  5  : 1  +4+8   +32+64 = 109
-  _arrDigits[  6 ] = 125; //  6  : 1  +4+8+16+32+64 = 125
-  _arrDigits[  7 ] =   7; //  7  : 1+2+4            =   7
-  _arrDigits[  8 ] = 127; //  8  : 1+2+4+8+16+32+64 = 127
-  _arrDigits[  9 ] = 111; //  9  : 1+2+4+8+  +32+64 = 111
-  _arrDigits[ 10 ] = 119; //  A  : 1+2+4  +16+32+64 = 119
-  _arrDigits[ 11 ] = 124; //  b  :    +4+8+16+32+64 = 124
-  _arrDigits[ 12 ] =  57; //  C  : 1    +8+16+32    =  57
-  _arrDigits[ 13 ] =  94; //  d  :   2+4+8+16   +64 =  94
-  _arrDigits[ 14 ] = 121; //  E  : 1    +8+16+32+64 = 121
-  _arrDigits[ 15 ] = 113; //  F  : 1      +16+32+64 = 113
-  _arrDigits[ 16 ] = 116; //  h  :     4  +16+32+64 = 116
-  _arrDigits[ 17 ] = 118; //  H  :   2+4  +16+32+64 = 118
-  _arrDigits[ 18 ] =  31; //  J  : 1+2+4+8+16       =  31
-  _arrDigits[ 19 ] =  56; //  L  :      +8+16+32    =  56
-  _arrDigits[ 20 ] =  84; //  n  :     4  +16   +64 =  84
-  _arrDigits[ 21 ] =  92; //  o  :     4+8+16   +64 =  92
-  _arrDigits[ 22 ] = 115; //  P  : 1+2    +16+32+64 = 115
-  _arrDigits[ 23 ] =  80; //  r  :         16   +64 =  80
-  _arrDigits[ 24 ] =  28; //  u  :     4+8+16       =  28
-  _arrDigits[ 25 ] =  62; //  U  :   2+4+8+16+32    =  62
-  _arrDigits[ 26 ] =  64; //  -  :              +64 =  64
-  _arrDigits[ 27 ] =  15; //  ]  : 1+2+4+8          =  15
-  _arrDigits[ 28 ] =  99; //  °  : 1+2       +32+64 =  99
+
+  // By the wiring above you can easily calculate the bytes by 2^p!
+  // However, you can use integer types directly as index for the
+  // set up array to display the integer on the seven segment. For
+  // example: int a = 4 .. _arrDigits[ a ] .. displays: value 4 or
+  // int a = 12 .. _arrDigits[ a ] .. displays: value C as HEX value.
+  _arrDigits[  0 ] = (byte)(  63 ); //  0  : 1+2+4+8+16+32    =  63
+  _arrDigits[  1 ] = (byte)(   6 ); //  1  :   2+4            =   6
+  _arrDigits[  2 ] = (byte)(  91 ); //  2  : 1+2  +8+16   +64 =  91
+  _arrDigits[  3 ] = (byte)(  79 ); //  3  : 1+2+4+8      +64 =  79
+  _arrDigits[  4 ] = (byte)( 102 ); //  4  :   2+4     +32+64 = 102
+  _arrDigits[  5 ] = (byte)( 109 ); //  5  : 1  +4+8   +32+64 = 109
+  _arrDigits[  6 ] = (byte)( 125 ); //  6  : 1  +4+8+16+32+64 = 125
+  _arrDigits[  7 ] = (byte)(   7 ); //  7  : 1+2+4            =   7
+  _arrDigits[  8 ] = (byte)( 127 ); //  8  : 1+2+4+8+16+32+64 = 127
+  _arrDigits[  9 ] = (byte)( 111 ); //  9  : 1+2+4+8+  +32+64 = 111
+  _arrDigits[ 10 ] = (byte)( 119 ); //  A  : 1+2+4  +16+32+64 = 119
+  _arrDigits[ 11 ] = (byte)( 124 ); //  b  :    +4+8+16+32+64 = 124
+  _arrDigits[ 12 ] = (byte)(  57 ); //  C  : 1    +8+16+32    =  57
+  _arrDigits[ 13 ] = (byte)(  94 ); //  d  :   2+4+8+16   +64 =  94
+  _arrDigits[ 14 ] = (byte)( 121 ); //  E  : 1    +8+16+32+64 = 121
+  _arrDigits[ 15 ] = (byte)( 113 ); //  F  : 1      +16+32+64 = 113
+  _arrDigits[ 16 ] = (byte)( 116 ); //  h  :     4  +16+32+64 = 116
+  _arrDigits[ 17 ] = (byte)( 118 ); //  H  :   2+4  +16+32+64 = 118
+  _arrDigits[ 18 ] = (byte)(  31 ); //  J  : 1+2+4+8+16       =  31
+  _arrDigits[ 19 ] = (byte)(  56 ); //  L  :      +8+16+32    =  56
+  _arrDigits[ 20 ] = (byte)(  84 ); //  n  :     4  +16   +64 =  84
+  _arrDigits[ 21 ] = (byte)(  92 ); //  o  :     4+8+16   +64 =  92
+  _arrDigits[ 22 ] = (byte)( 115 ); //  P  : 1+2    +16+32+64 = 115
+  _arrDigits[ 23 ] = (byte)(  80 ); //  r  :         16   +64 =  80
+  _arrDigits[ 24 ] = (byte)(  28 ); //  u  :     4+8+16       =  28
+  _arrDigits[ 25 ] = (byte)(  62 ); //  U  :   2+4+8+16+32    =  62
+  _arrDigits[ 26 ] = (byte)(  64 ); //  -  :              +64 =  64
+  _arrDigits[ 27 ] = (byte)(  15 ); //  ]  : 1+2+4+8          =  15
+  _arrDigits[ 28 ] = (byte)(  99 ); //  °  : 1+2       +32+64 =  99
 
 } // SAA1064::_init
 
@@ -619,18 +639,23 @@ void // say byte on single digit: 1, 2, 3 or 4
 SAA1064::_say( byte b, int digit ) {
 
   if( digit < 0 || digit > 3 )
-    digit = 0;
+    digit = 0; // fall back to first digit
 
   Wire.beginTransmission( _i2cAddress );   
-  Wire.write( (byte)(digit + 1) ); // instruction byte -> 1st, 2nd, 3rd, last
+  Wire.write( (byte)( digit + 1 ) ); // instruction byte -> 1st, 2nd, 3rd, last
   Wire.write( b ); // digit 4 (LHS)
   Wire.endTransmission( );
-
 
 } // SAA1064::_say
 
 /**************************************80**************************************/
 
+/**
+ * Method for splitting up a numbers into its place-value notation.
+ *
+ * @author John Boxall
+ * @date 27.07.2011
+ */
 void // and returns an array of length 4; allocated before !!!
 SAA1064::_splitNum2Dig( int number, int* digits ) {
 

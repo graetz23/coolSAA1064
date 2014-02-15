@@ -1,5 +1,6 @@
 /**
- * The 'COOL SAA1064 LIB' for arduino
+ * The 'COOL SAA1064 LIB'.
+ *
  * An arduino library driving the NXP SAA1064 IC in a comfortable way.
  *
  * SAA1064 saa1064;
@@ -9,8 +10,8 @@
  * email:   cscheiblich@gmail.com
  * license: Apache V 2.0, Jan 2004
  * created: 24.01.2014
- * edited:  27.01.2014
- * version: 0.92
+ * edited:  15.02.2014
+ * version: 0.93
  */
 
 #include <Wire.h>    // for some strange reasons, Wire.h must be included here
