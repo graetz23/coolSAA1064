@@ -34,5 +34,3 @@ Features are:
 - display all byte coding over all segments; takes time!
 
 All necessary I2C communications are realized by only three methods: _set, 2 x _say!
-
-Have fun ~8>
