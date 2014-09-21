@@ -603,7 +603,7 @@ SAA1064::_init( void ) {
   _arrDigits[ 25 ] = (byte)(  62 ); //  U  :   2+4+8+16+32    =  62
   _arrDigits[ 26 ] = (byte)(  64 ); //  -  :              +64 =  64
   _arrDigits[ 27 ] = (byte)(  15 ); //  ]  : 1+2+4+8          =  15
-  _arrDigits[ 28 ] = (byte)(  99 ); //  °  : 1+2       +32+64 =  99
+  _arrDigits[ 28 ] = (byte)(  99 ); //  Â°  : 1+2       +32+64 =  99
 
 } // SAA1064::_init
 
@@ -635,7 +635,7 @@ SAA1064::_say( byte b4, byte b3, byte b2, byte b1 ) {
   
 } // SAA1064::_say
 
-void // say byte on single digit: 1, 2, 3 or 4
+void // say byte on single digit: 0, 1, 2 or 3
 SAA1064::_say( byte b, int digit ) {
 
   if( digit < 0 || digit > 3 )
