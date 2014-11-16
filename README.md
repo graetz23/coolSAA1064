@@ -2,10 +2,12 @@ cool-SAA1064-lib
 ================
 
 The 'Cool SAA1064 lib' driving the NXP SAA1064 IC
-in a comfortable way as an arduino library ...
+as an arduino library in a comfortable way ...
 
-SAA1064 saa1064;
-saa1064.scollCooLSAA1064( );
+Example code:
+
+SAA1064 saa1064; // generate an object
+saa1064.scollCooLSAA1064( ); // shows functionality
 
 Features are:
 
@@ -33,4 +35,6 @@ Features are:
 - display all possible letters that are stored internal
 - display all byte coding over all segments; takes time!
 
-All necessary I2C communications are realized by only three methods: _set, 2 x _say!
+All necessary I2C communications are realized by only three methods:
+- _set( .. ); // once
+- _say( .. ); // two times
