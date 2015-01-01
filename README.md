@@ -1,8 +1,8 @@
-cool-SAA1064-lib
-================
+# The 'coolSAA1064' library
 
-The 'Cool SAA1064 lib' driving the NXP SAA1064 IC
-as an arduino library in a comfortable way ...
+
+The 'coolSAA1064' library driving the NXP SAA1064 IC as
+an arduino library in a comfortable way ..
 
 Example code:
 
