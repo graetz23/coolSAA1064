@@ -8,10 +8,10 @@
  *
  * author:  Christian Scheiblich
  * email:   cscheiblich@gmail.com
- * license: Apache V 2.0, Jan 2004
- * created: 24.01.2014
- * edited:  15.02.2014
- * version: 0.93
+ * license: MIT
+ * created: 15.02.2014
+ * edited:  01.01.2014
+ * version: 0.94
  */
 
 #include <Wire.h>    // for some strange reasons, Wire.h must be included here
