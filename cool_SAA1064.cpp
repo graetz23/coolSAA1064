@@ -28,8 +28,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * created: 01.01.2015
- * edited:  15.02.2014
+ * created: 15.02.2014
+ * edited:  01.01.2014
  * version: 0.94
  */
 
