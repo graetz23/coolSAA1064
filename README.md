@@ -36,5 +36,5 @@ Features are:
 - display all byte coding over all segments; takes time!
 
 All necessary I2C communications are realized by only three methods:
-- _set( .. ); // set the configuration of SAA1064; once implenmented
+- _set( .. ); // set the configuration of SAA1064; once implemented
 - _say( .. ); // tell bytes for displaying to SAA1064; two times implemented
