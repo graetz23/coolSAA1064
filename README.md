@@ -1,15 +1,14 @@
-# The 'coolSAA1064' library
+## The 'coolSAA1064' arduino library ##
 
 
-The 'coolSAA1064' library driving the NXP SAA1064 IC as
-an arduino library in a comfortable way ..
+The 'coolSAA1064' arduino library drives the NXP SAA1064 IC comfortable ..
 
-Example code:
+**Example code:**
 
 SAA1064 saa1064; // generate an object
 saa1064.scollCooLSAA1064( ); // shows functionality
 
-Features are:
+**Features are:**
 
 - select IC's internal test mode switching on all segments
 - select mode for two or four digits
