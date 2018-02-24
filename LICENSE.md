@@ -1,8 +1,8 @@
-License
-=======
-coolSAA1064 is distributed under the MIT License (MIT).
+##License##
 
-Copyright (c) 2014-2017 Christian Scheiblich (cscheiblich@gmail.com)
+**coolSAA1064 is distributed under the MIT License (MIT).**
+
+**Copyright (c) 2014-2018 Christian Scheiblich (cscheiblich@gmail.com)**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

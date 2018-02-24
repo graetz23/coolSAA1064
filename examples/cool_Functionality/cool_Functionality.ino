@@ -10,7 +10,7 @@
  * email:   cscheiblich@gmail.com
  * license: MIT
  * created: 15.02.2014
- * edited:  01.01.2014
+ * edited:  24.02.2018
  * version: 0.94
  */
 
