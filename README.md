@@ -3,6 +3,8 @@
 
 The 'coolSAA1064' arduino library drives the NXP SAA1064 IC comfortable ..
 
+![coolSAA1064](cool_SAA1064.jpg)
+
 **Example code:**
 
 SAA1064 saa1064; // generate an object
