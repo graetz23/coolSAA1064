@@ -8,7 +8,7 @@
  *
  * coolSAA1064 is distributed under the MIT License (MIT); this file is part of.
  *
- * Copyright (c) 2014-2018 Christian Scheiblich (cscheiblich@gmail.com)
+ * Copyright (c) 2014-2020 Christian Scheiblich (cscheiblich@gmail.com)
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,13 +29,13 @@
  * THE SOFTWARE.
  *
  * created: 15.02.2014
- * edited:  01.01.2014
- * version: 0.94
+ * edited:  15.01.2020
+ * version: 1.0
  */
 
 /**************************************80**************************************/
- 
-#include <Wire.h> // include I2C library not in header
+
+#include <Wire.h> // I2C
 #include "cool_SAA1064.h" // class header file
 
 /**************************************80**************************************/
