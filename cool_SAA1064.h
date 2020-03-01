@@ -8,7 +8,7 @@
  *
  * coolSAA1064 is distributed under the MIT License (MIT); this file is part of.
  *
- * Copyright (c) 2014-2020 Christian Scheiblich (cscheiblich@gmail.com)
+ * Copyright (c) 2014-2020 Christian (graetz23@gmail.com)
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  * THE SOFTWARE.
  *
  * created: 15.02.2014
- * edited:  15.01.2020
+ * edited:  01.03.2020
  * version: 1.0
  *
  * Necessary wiring for this library:

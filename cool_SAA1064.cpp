@@ -8,7 +8,7 @@
  *
  * coolSAA1064 is distributed under the MIT License (MIT); this file is part of.
  *
- * Copyright (c) 2014-2020 Christian Scheiblich (cscheiblich@gmail.com)
+ * Copyright (c) 2014-2020 Christian (graetz23@gmail.com)
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@
  * THE SOFTWARE.
  *
  * created: 15.02.2014
- * edited:  15.01.2020
+ * edited:  01.03.2020
  * version: 1.0
  */
 
@@ -578,7 +578,7 @@ SAA1064::sayArrDigits( void ) {
  * 7-Segment:  g -> SAA1064: P7 and/or P15 (pin:  4 and/or 21)
  * 7-Segment: dp -> SAA1064: P8 and/or P16 (pin:  3 and/or 22)
  *
- * @author Christian Scheiblich
+ * @author Christian
  */
 void // sets the MAPPING TABLE (number to bytes) FOR the used WIRING
 SAA1064::_init( void ) {
@@ -673,7 +673,7 @@ SAA1064::_say( byte b, int digit ) {
  * Method for splitting up a numbers into its place-value notation.
  * 
  * Renamed the method and the variables inside.
- * @author Christian Scheiblich
+ * @author Christian
  * @date 15.02.2014
  *
  * Original by: http://tronixstuff.com/tutorials/ => Ch. 39 - NXP SAA1064
