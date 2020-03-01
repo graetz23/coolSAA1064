@@ -6,11 +6,11 @@
  * SAA1064 saa1064;
  * saa1064.scrollCooLSAA1064( );
  *
- * author:  Christian Scheiblich
- * email:   cscheiblich@gmail.com
+ * author:  Christian
+ * email:   graetz23@gmail.com
  * license: MIT
  * created: 15.02.2014
- * edited:  15.01.2020
+ * edited:  01.03.2020
  * version: 1.0
  */
 
