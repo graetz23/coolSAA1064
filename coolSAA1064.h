@@ -4,12 +4,12 @@
  * SAA1064 saa1064;
  * saa1064.scrollCooLSAA1064( );
  *
- * An arduino library driving the NXP SAA1064 IC in a comfortable way.
+ * An arduino library driving the PHILIPS / NXP SAA1064 IC in a comfortable way.
  *
  * coolSAA1064 is distributed under the MIT License (MIT); this file is part of.
  *
  * Copyright (c) 2014-2020 Christian (graetz23@gmail.com)
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -28,9 +28,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * created: 15.02.2014
- * edited:  13.04.2020
- * version: 1.0
+ * Christian
+ * graetz23@gmail.com
+ * created 20140215
+ * version 20200413
  *
  * Necessary wiring for this library:
  *
@@ -76,13 +77,13 @@
  *
  * Pin  1: Wire to ground (should work with IC2 address 0x70 >> 1)
  * Pin  2: Wire a 2 .. 3 nF capacitor to ground; even 10 nF works
- * Pin 11: Wire to any NPN-type transistor like N2222; I used: 2N 3704 
+ * Pin 11: Wire to any NPN-type transistor like N2222; I used: 2N 3704
  * Pin 12: VEE - Ground; should be 0 Volts
  * Pin 13: VCC - 5 Volts
  * Pin 14: Wire to any NPN-type transistor like N2222; I used: 2N 3704
  * Pin 23: SDA of I2C bus; I added 1k Ohm pull up resistor to VCC
  * Pin 24: SCL of I2C bus; I added 1k Ohm pull up resistor to VCC
- * 
+ *
  * Control Bytes:
  *
  * B00000000 - is send to mark that the next byte is a control byte:
@@ -116,21 +117,21 @@ class SAA1064 {
 
   SAA1064( void ); // constructor
   SAA1064( byte i2cAddress ); // constructor
-  
+
   ~SAA1064( void ); // destructor
-  
+
   void set( byte controlByte ); // to your own control byte; look at text above
   void setTest( void ); // switch all segemtns on for testing them
   void setStatic( void ); // to a default mode; static 2 digits, 18 mA
   void setDynamic( void ); // to a default mode; dynamic 4 digits, 18 mA
-  
+
   void setDark( void ); // set to output currents 3 mA
   void setNormal( void ); // set to output currents 12 mA
   void setBright( void ); //  set to output currents 21 mA
   void setIntensity( int intensity ); // sets the intensity from 1 .. 7 - min .. max
-  
+
   void clear( void ); // switch off all segments
-  
+
   void say( int h4, int h3, int  h2, int h1 ); // update display by hex 0 .. 15 ( .. F ) and -1 is blank
   void say( byte b4, byte b3, byte b2, byte b1 ); // update display by bytes
   void say( int h, int digit ); // say byte on single digit: 0, 1, 2 or 3
@@ -140,15 +141,19 @@ class SAA1064 {
 
   void scroll( int* arrDigits, int arrDigitsLength, int milliSeconds ); // scroll right to left
   void scrollCooLSAA1064( void ); // scroll 'CooL SAA1064 8-]' from right to left
-  
-  void amplitude( int level ); // display an amplitude by level form 0 .. 7 
-  
+
+  void amplitude( int level ); // display an amplitude by level form 0 .. 7
+
   void sayTime( int hour, int minute ); // displays the time
   void sayDate( int day, int month ); // displays the date
   void sayDateUS( int day, int month ); // displays the date, flipped position
   void sayYear( int year ); // say year in four digits
   void scrollTime( int hour, int minute, int second, int milliSeconds ); // scroll right to left
   void scrollDate( int day, int month, int year, int milliSeconds ); // scroll right to left
+
+  void sayOPEn( void ); // displays the word OPEn
+  void sayLOAd( void ); // displays the word LOAd
+  void sayPLAY( void ); // displays the word PLAY
 
   void sayCooL( void ); // displays the word CooL
   void sayOooh( void ); // displays the word Oooh
@@ -158,19 +163,19 @@ class SAA1064 {
   void sayJAJA( void ); // displays the word JAJA
   void sayFoo( void ); // displays the word Foo
   void saybAr( void ); // displays the word bAr
-  
+
   void saySmiley( void ); // displays a smiley 8-]
-    
-  void byteAll( void ); // bytes through all segements by a loop 
-    
+
+  void byteAll( void ); // bytes through all segements by a loop
+
   void sayArrDigits( void ); // show the member _arrDigits with stored codes.
-  
+
  private:
- 
+
   void _init( void ); // sets the MAPPING TABLE (number to bytes) FOR the used WIRING
-  
+
   void _set( byte controlByte ); // set a control byte and keep it in mind
-  
+
   void _say( byte b4, byte b3, byte b2, byte b1 ); // update display by bytes
 
   void _say( byte b, int digit ); // say byte on single digit: 0, 1, 2 or 3
@@ -178,12 +183,12 @@ class SAA1064 {
   void _splitNum2Dig( int number, int* digits ); // and returns an array of length 4; allocated before !!!
 
   byte _i2cAddress; // set in costructor to 0x70 >> 1
-  
+
   byte _controlByte; // The byte the configures the SAA1064 chip
-  
+
   byte* _arrDigits; // set in constructor
-  int _arrDigitsLength; // length of 
-  
+  int _arrDigitsLength; // length of
+
 }; // SAA1064
 
 /**************************************80**************************************/
