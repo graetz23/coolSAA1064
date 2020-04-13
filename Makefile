@@ -1,5 +1,5 @@
 #
-# Arduino Make file.
+# Arduino Makefile
 # Refer to https://github.com/sudar/Arduino-Makefile
 #
 # @author Christian
