@@ -120,6 +120,8 @@ class SAA1064 {
 
   ~SAA1064( void ); // destructor
 
+  void setup( ); // call this in your arduino setup() method; see issue #1
+
   void set( byte controlByte ); // to your own control byte; look at text above
   void setTest( void ); // switch all segemtns on for testing them
   void setStatic( void ); // to a default mode; static 2 digits, 18 mA

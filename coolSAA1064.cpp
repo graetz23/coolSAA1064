@@ -56,8 +56,6 @@ SAA1064::SAA1064( void ) {
 
   _init( ); // init all
 
-  Wire.begin( );
-
 } // SAA1064
 
 // Constructor
@@ -66,8 +64,6 @@ SAA1064::SAA1064( byte i2cAdress ) {
   _init( ); // init all
 
   _i2cAddress = i2cAdress; // overwrite i2c address set in _init( )
-
-  Wire.begin( );
 
 } // SAA1064
 
@@ -143,6 +139,14 @@ SAA1064::_init( void ) {
 } // SAA1064::_init
 
 /**************************************80**************************************/
+
+void // call this in your arduino setup() method; see issue #1
+SAA1064::setup( ) {
+
+  Wire.begin( ); // due to reported issue #1; opening wire by calling setup()
+
+} // SAA1064::begin
+
 
 void // set to your own control byte
 SAA1064::set( byte controlByte ) {

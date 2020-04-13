@@ -238,16 +238,20 @@ have fun :-)
 ## Change Log
 
 **20200413**
- - added standard say mathods:
-  - sayOn, sayOFF, and sayGO,
-  - sayOPEn, sayPLAY, sayLOAd, and sayDISC.
- - Therefore I
-  - moved '-' from id 26 to 27,
-  - moved ']' from id 27 to 28,
-  - moved '°' from id 28 to 29,
-  - added 'Y' to as id 26.
- - moved \_init() method to line _100_ to fix it there for referencing,
- - In honors to the _discontinued_ SAA1064, rewritten readme, added pictures, examples, ..
+  - released version v1.1:
+    - due to [issue \#1}(https://github.com/graetz23/coolSAA1064/issues/1), the created _setup()_ method for calling 'Wire.begin()',
+    - by version 1.1, call 'saa1064.setup()' in arduino's 'setup()'.
+  - released version v1.:
+    - added standard say mathods:
+      - sayOn, sayOFF, and sayGO,
+      - sayOPEn, sayPLAY, sayLOAd, and sayDISC.
+    - Therefore I
+      - moved '-' from id 26 to 27,
+      - moved ']' from id 27 to 28,
+      - moved '°' from id 28 to 29,
+      - added 'Y' to as id 26.
+    - moved \_init() method to line _100_ to fix it there for referencing,
+    - In honors to the _discontinued_ SAA1064, rewritten readme, added pictures, examples, ..
 
 **20140215**
- - first stable implementation available.
+  - first stable implementation available.
