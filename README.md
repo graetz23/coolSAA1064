@@ -2,7 +2,7 @@
 
 ### Introduction ###
 
-The coolSAA1064 arduino library handles the 7 segement Philips / NXP SAA1064 driver.
+The coolSAA1064 arduino library handles the 7 segment Philips / NXP SAA1064 driver.
 
 ![coolSAA1064 sent in by some user](coolSAA1064.jpg)
 
@@ -59,7 +59,7 @@ for( int i = 1; i < 8; i++ ) {
   delay( 250 ); // wait
 }  // loop
 ```
-**Display some number over all segement**
+**Display some number over all segment**
 ```C++
 saa1064.clear( ); // clean up all segments
 saa1064.say( 5 ); //       5
@@ -72,7 +72,7 @@ saa1064.say( 2815 ); // 2815
 delay( 250 );
 ```
 
-**Display some number over all segement; fill front with zeros**
+**Display some number over all segment; fill front with zeros**
 ```C++
 saa1064.clear( ); // clean up all segments
 saa1064.sayByZero( 5 ); //    0005
@@ -85,7 +85,7 @@ saa1064.sayByZero( 2815 ); // 2815
 delay( 250 );
 ```
 
-**Display some number by each segement**
+**Display some number by each segment**
 ```C++
 saa1064.clear( ); // clean up all segments
 saa1064.say( 1, 0 ); // show 1 on 1st (id 0) digit
@@ -216,11 +216,16 @@ All necessary I2C communications are realized by only three methods:
 
 All other methods for communicating are using these two methods.
 
+### Releases
+
+There are [stable releases available](https://github.com/graetz23/coolSAA1064/releases) by cloning or downloading and unzipping.
+
 ### Remarks
 
-everything was coded using:
+Everything was coded using:
 
   - [**SAA1064 IC**](https://www.nxp.com/docs/en/application-note/AN264.pdf) from NXP,
+  - [**7 Segments**](https://de.wikipedia.org/wiki/Segmentanzeige) displays; _in German langugage only_,  
   - [**arduino**](https://www.arduino.cc/) project,
   - [**arduino IDE**](https://www.arduino.cc/en/main/software) _around 2014_,
   - [**arduino Makefile**](https://github.com/sudar/Arduino-Makefile) for automated building,
