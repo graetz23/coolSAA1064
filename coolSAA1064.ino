@@ -18,16 +18,18 @@ SAA1064 saa1064;
 
 void setup( ) {
 
+  saa1064.setup( ); // call this first, opens the I2C wire ..
+
   saa1064.setTest( );
 
-  delay( 1000 );
+  delay( 250 );
 
   saa1064.setDynamic( );
 
-  delay( 1000 );
+  delay( 250 );
 
   saa1064.clear( );
-  delay( 1000 );
+  delay( 250 );
 
 } // setup
 
