@@ -20,15 +20,15 @@ The SAA1064 _was still available_ and satisfied my need for output, but unfortun
 
 And in 2020 there's again the need for _output_. A friend of mine renovate some _foosball_ (colored Germany vs. Brazil) and built in some _photoelectric barrier_ to detect goals; he asked how to display a seven to one best. I told, I got these SAA1064 ICs and some library ready to go ..
 
-![coolSAA1064 sent in by some user](coolSAA1064_PCB_layout.png)
+![coolSAA1064 sent in by some user](coolSAA1064_PCB_top.png)
 
 However, ebay _donated_ me several orange 7 segment displays with an _alpha size_ of 2.3 inch (5.842 cm); that's a 7 seg of 6.97 cm x 4.78 cm. That arised the problem how to wire 4 x 9 and 16 resistors, a DIL 24 IC, and stuff, .. :-|
 
-![coolSAA1064 sent in by some user](coolSAA1064_PCB_top.png)
+![coolSAA1064 sent in by some user](coolSAA1064_PCB_bottom.png)
 
 Anyway, I designed a PCB for the _fossball_, and having still in mind to build that _living room clock_ and that _thermometer display for my home brewery_, and ..
 
-![coolSAA1064 sent in by some user](coolSAA1064_PCB_bottom.png)
+![coolSAA1064 sent in by some user](coolSAA1064_PCB_layout.png)
 
 ### Live
 
