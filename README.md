@@ -239,7 +239,7 @@ have fun :-)
 
 **20200413**
   - released version v1.1:
-    - due to [issue \#1}(https://github.com/graetz23/coolSAA1064/issues/1), the created _setup()_ method for calling 'Wire.begin()',
+    - due to [issue \#1](https://github.com/graetz23/coolSAA1064/issues/1), the created _setup()_ method for calling 'Wire.begin()',
     - by version 1.1, call 'saa1064.setup()' in arduino's 'setup()'.
   - released version v1.:
     - added standard say mathods:
