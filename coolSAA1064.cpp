@@ -29,14 +29,14 @@
  * THE SOFTWARE.
  *
  * created: 15.02.2014
- * edited:  01.03.2020
+ * edited:  13.04.2020
  * version: 1.0
  */
 
 /**************************************80**************************************/
 
 #include <Wire.h> // I2C
-#include "cool_SAA1064.h" // class header file
+#include "./coolSAA1064.h" // class header file
 
 /**************************************80**************************************/
 

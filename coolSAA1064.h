@@ -29,7 +29,7 @@
  * THE SOFTWARE.
  *
  * created: 15.02.2014
- * edited:  01.03.2020
+ * edited:  13.04.2020
  * version: 1.0
  *
  * Necessary wiring for this library:
