@@ -152,7 +152,7 @@ for( int i = 5; i >= 0; i-- ) {
 ```
 
 
-**Predefined Words and letters**
+**Predefined words and letters**
 ```C++
 saa1064.clear( ); // clean up all segments
 saa1064.sayFoo( ); //  writes ' foo'
@@ -170,6 +170,8 @@ delay( 250 );
 saa1064.sayLOAd( ); // writes 'LOAd'
 delay( 250 );
 saa1064.sayPLAY( ); // writes 'PLAY'
+delay( 250 );
+saa1064.sayDISC( ); // writes 'dISC'
 delay( 250 );
 ```
 
