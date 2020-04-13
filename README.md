@@ -155,9 +155,15 @@ for( int i = 5; i >= 0; i-- ) {
 **Predefined Words and letters**
 ```C++
 saa1064.clear( ); // clean up all segments
-saa1064.sayFoo( ); // writes 'foo'
+saa1064.sayFoo( ); //  writes ' foo'
 delay( 250 );  
-saa1064.saybAr( ); // writes 'bar'
+saa1064.saybAr( ); //  writes ' bar'
+delay( 250 );
+saa1064.sayOn( ); //   writes '  On'
+delay( 250 );
+saa1064.sayOFF( ); //  writes ' OFF'
+delay( 250 );
+saa1064.sayGO( ); //   writes '  gO'
 delay( 250 );
 saa1064.sayOPEn( ); // writes 'OPEn'
 delay( 250 );
@@ -225,7 +231,10 @@ have fun :-)
 ## Change Log
 
 **20200413**
- - added standard say mathods: sayOPEn, sayPLAY, and say LOAd.
+ - added standard say mathods:
+  - sayOn, sayOFF, and sayGO,
+  - sayOPEn, sayPLAY, sayLOAd, and sayDISC.
+ - Therefore I
   - moved '-' from id 26 to 27,
   - moved ']' from id 27 to 28,
   - moved '°' from id 28 to 29,

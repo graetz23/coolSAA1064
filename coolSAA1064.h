@@ -151,9 +151,14 @@ class SAA1064 {
   void scrollTime( int hour, int minute, int second, int milliSeconds ); // scroll right to left
   void scrollDate( int day, int month, int year, int milliSeconds ); // scroll right to left
 
+  void sayOn( void ); // displays the word On
+  void sayOFF( void ); // displays the word OFF
+  void sayGO( void ); // displays the word gO
+
   void sayOPEn( void ); // displays the word OPEn
   void sayLOAd( void ); // displays the word LOAd
   void sayPLAY( void ); // displays the word PLAY
+  void sayDISC( void ); // displays the word dISC
 
   void sayCooL( void ); // displays the word CooL
   void sayOooh( void ); // displays the word Oooh
