@@ -10,11 +10,11 @@
  * email:   graetz23@gmail.com
  * license: MIT
  * created: 15.02.2014
- * edited:  01.03.2020
+ * edited:  13.04.2020
  * version: 1.0
  */
 
-#include "./cool_SAA1064.h" // enable I2C bus
+#include "./coolSAA1064.h" // enable I2C bus
 
 SAA1064 saa1064;
 
