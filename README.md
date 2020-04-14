@@ -237,6 +237,9 @@ have fun :-)
 
 ## Change Log
 
+**20200414**
+  - bug fix on added say word method; was in byte code not array index!
+
 **20200413**
   - released version v1.1:
     - due to [issue \#1](https://github.com/graetz23/coolSAA1064/issues/1), the created _setup()_ method for calling 'Wire.begin()',
