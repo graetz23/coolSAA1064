@@ -31,7 +31,7 @@
  * Christian
  * graetz23@gmail.com
  * created 20140215
- * version 20200413
+ * version 20200414
  */
 
 /**************************************80**************************************/
@@ -526,7 +526,7 @@ SAA1064::scrollDate( int day, int month, int year, int milliSeconds ) {
 void // displays the word On
 SAA1064::sayOn( void ) {
 
-  say( -1, -1, 63, 84 );
+  say( -1, -1, 21, 20 );
 
 } // SAA1064::sayOn
 
@@ -535,7 +535,7 @@ SAA1064::sayOn( void ) {
 void // displays the word OFF
 SAA1064::sayOFF( void ) {
 
-  say( -1, 63, 113, 113 );
+  say( -1, 0, 21, 15 ); // HEX => 15 == F
 
 } // SAA1064::sayOFF
 
@@ -544,7 +544,7 @@ SAA1064::sayOFF( void ) {
 void // displays the word gO
 SAA1064::sayGO( void ) {
 
-  say( -1, -1, 111, 63 );
+  say( -1, -1, 9, 21 );
 
 } // SAA1064::sayG0
 
@@ -553,7 +553,7 @@ SAA1064::sayGO( void ) {
 void // displays the word OPEn
 SAA1064::sayOPEn( void ) {
 
-  say( 63, 115, 121, 84 );
+  say( 0, 22, 14, 20 );
 
 } // SAA1064::sayOPEn
 
@@ -562,7 +562,7 @@ SAA1064::sayOPEn( void ) {
 void // displays the word LOAd
 SAA1064::sayLOAd( void ) {
 
-  say( 56, 63, 119, 94 );
+  say( 19, 21, 10, 13 ); // HEX; 10 = A and 13 = d
 
 } // SAA1064::sayLOAd
 
@@ -571,7 +571,7 @@ SAA1064::sayLOAd( void ) {
 void // displays the word PLAY
 SAA1064::sayPLAY( void ) {
 
-  say( 115, 56, 119, 19 );
+  say( 22, 19, 10, 26 );
 
 } // SAA1064::sayPLAY
 
@@ -580,7 +580,7 @@ SAA1064::sayPLAY( void ) {
 void // displays the word dISC
 SAA1064::sayDISC( void ) {
 
-  say( 94, 6, 109, 12 );
+  say( 94, 6, 5, 12 );
 
 } // SAA1064::sayDISC
 
