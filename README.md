@@ -32,7 +32,9 @@ Anyway, I designed a PCB for the _fossball_, and having still in mind to build t
 
 ### Live
 
-_That's something to be there soon .._
+The dry run of the coolSAA1064 library by the assembled PCB with 2.3" alpha sized 7-segments of orange color ..
+
+[![dry running the coolSAA1064 arduino library](https://img.youtube.com/vi/L6sKXfyUpWc/0.jpg)](https://www.youtube.com/watch?v=L6sKXfyUpWc)
 
 ### Examples
 
