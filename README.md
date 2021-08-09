@@ -1,7 +1,7 @@
 ## The coolSAA1064 arduino library
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/graetz23/coolSAA1064)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/graetz23/coolSAA1064)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/graetz23/coolSAA1064)
 
 ### Introduction ###
 
