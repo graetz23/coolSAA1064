@@ -2,6 +2,8 @@
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/graetz23/coolSAA1064)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/graetz23/coolSAA1064)
+![GitHub Repo stars](https://img.shields.io/github/stars/graetz23/coolSAA1064?style=social)
+![GitHub forks](https://img.shields.io/github/forks/graetz23/coolSAA1064?style=social)
 
 ### Introduction ###
 
