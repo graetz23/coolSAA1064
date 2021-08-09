@@ -1,5 +1,7 @@
 ## The coolSAA1064 arduino library
 
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/graetz23/coolSAA1064)
+
 ### Introduction ###
 
 The coolSAA1064 arduino library handles the 7 segment Philips / NXP SAA1064 driver.
