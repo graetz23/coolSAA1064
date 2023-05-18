@@ -245,6 +245,9 @@ have fun :-)
 
 ## Change Log
 
+**20230518**
+  - updating copyright by year ..
+
 **20200414**
   - bug fix on added say word method; was in byte code not array index!
 
