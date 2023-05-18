@@ -24,21 +24,21 @@ The SAA1064 _was still available_ and satisfied my need for output, but unfortun
 
 ### Revival
 
-And in 2020 there's again the need for _output_. A friend of mine renovate some _foosball_ (colored Germany vs. Brazil) and built in some _photoelectric barrier_ to detect goals; he asked how to display a seven to one best. I told, I got these SAA1064 ICs and some library ready to go ..
+And in 2020 there's again the need for _output_. A friend of mine renovate some _foosball_ (colored Germany vs. Brazil) and built in some _photoelectric barrier_ to detect goals; he asked how to display a seven to one best. :-)
 
 ![coolSAA1064 sent in by some user](coolSAA1064_PCB_top.png)
 
-However, ebay _donated_ me several orange 7 segment displays with an _alpha size_ of 2.3 inch (5.842 cm); that's a 7 seg of 6.97 cm x 4.78 cm. That arised the problem how to wire 4 x 9 and 16 resistors, a DIL 24 IC, and stuff, .. :-|
+However the internet _supported_ me several orange 7 segment displays with an _alpha size_ of 2.3 inch (5.842 cm); that's a 7 seg of 6.97 cm x 4.78 cm. The problem arised how to wire 4 x 9 and 16 resistors, a DIL-24 socket for the SAA1064, and infrastructure, .. :-|
 
 ![coolSAA1064 sent in by some user](coolSAA1064_PCB_bottom.png)
 
-Anyway, I designed a PCB for the _fossball_, and having still in mind to build that _living room clock_ and that _thermometer display for my home brewery_, and ..
+Therefore, I designed a PCB, where the 7 segments are on top, and all other parts are on the backside to encase it ..
 
 ![coolSAA1064 sent in by some user](coolSAA1064_PCB_layout.png)
 
 ### Live
 
-Video of dry running the coolSAA1064 library by the assembled PCB with 2.3" alpha sized 7-segments of orange color, showing the _text scrolling ability_ at the end ..
+Here is a link of dry running the PCB by the coolSAA1064 library with an arduino UNO. The 2.3" 7-segments are colored orange, the room is dark so it has some spectacular glowing effect. At the end the coolSAA1064 uses its _text scrolling ability_ ..
 
 [![dry running the coolSAA1064 arduino library](https://img.youtube.com/vi/L6sKXfyUpWc/0.jpg)](https://www.youtube.com/watch?v=L6sKXfyUpWc)
 
